@@ -1,0 +1,128 @@
+﻿1. What are the six combinations of access modifier keywords and what do they do? 
+public: This means the class, method, or variable is accessible from any other class or assembly.
+
+protected: This means the class, method, or variable is accessible within the containing class or types derived from the containing class.
+
+internal: This means the class, method, or variable is accessible within the current assembly.
+
+private: This means the class member is accessible only within the containing type.
+
+public protected: This combination is valid in C#. It allows access from any class and also by derived classes, but only if they are in the same assembly.
+
+private protected: This combination is valid in C#. It allows access within the containing assembly by derived types, but only if they are in the same assembly.
+
+2.What is the difference between the static, const, and readonly keywords when applied to a type member?
+Static:
+When applied to a member (such as a field, method, property, etc.), it means that the member belongs to the type itself rather than to any particular instance of the type.
+Static members are shared among all instances of the class and can be accessed directly using the class name.
+They are initialized only once, when the type is first accessed, and their values persist for the entire lifetime of the application.
+Static fields, methods, properties, etc., are typically used for functionality or data that is common to all instances of the class or does not require instantiation of the class.
+
+Const:
+The const keyword is used to declare constants, which are values that cannot be changed after they are initialized.
+Constants must be initialized at the time of declaration and cannot have their values modified later.
+They are implicitly static, meaning they belong to the type itself rather than to any instance of the type.
+Constants are often used for values that are known at compile time and are not expected to change, such as mathematical constants or configuration values.
+
+Readonly:
+The readonly keyword is used to declare fields whose values can only be assigned at initialization or in the constructor of the containing type.
+Unlike constants, the value of a readonly field can be determined at runtime, and it can vary between different instances of the class.
+Readonly fields are not implicitly static, meaning each instance of the class has its own copy of the field.
+Once initialized, the value of a readonly field cannot be changed, providing a level of immutability to the field's value after initialization.
+
+3. What does a constructor do?
+Initialization: The constructor initializes the newly created object by assigning initial values to its member variables or performing any necessary setup operations.
+
+Memory Allocation: It allocates memory for the object on the heap. This includes allocating memory for member variables, setting up the object's vtable (in languages with virtual functions), and any other necessary memory allocations.
+
+Instance-specific Initialization: Constructors allow you to set up an object with specific initial state or behavior based on parameters passed to the constructor. This can involve initializing member variables, invoking other methods, or configuring the object based on the provided arguments.
+
+Implicit Invocation: Constructors are implicitly invoked when an object is created using the new keyword. This means that you don't need to explicitly call the constructor; it's automatically called during object instantiation.
+
+Return Object Reference: Constructors typically do not have a return type (not even void), and they return a reference to the newly created object.
+
+4. Why is the partial keyword useful?
+The partial keyword in C# allows a class, struct, interface, or method to be defined in multiple files within the same namespace, effectively splitting the definition across multiple source files. 
+
+5. What is a tuple?
+A tuple is a data structure in programming that allows you to store a fixed-size, ordered collection of elements.
+
+6. What does the C# record keyword do?
+the record keyword is used to define a reference type that represents immutable data. 
+
+7. What does overloading and overriding mean?
+overloading: Method overloading refers to defining multiple methods in the same class with the same name but with different parameter lists.
+overriding: Method overriding refers to providing a new implementation for a method in a subclass that is already defined in its superclass. 
+
+8. What is the difference between a field and a property?
+Field:
+
+A field is a variable that is declared within a class to store data.
+Fields are typically declared with private or protected access modifiers to restrict direct access from outside the class.
+Fields expose the internal state of an object and are accessed directly by other code within the class.
+Fields do not have any associated methods or logic for getting or setting their values.
+Fields are sometimes used for simple data storage where no additional logic or validation is needed.
+
+Property:
+
+A property is a member of a class that provides a way to encapsulate a field by exposing a getter and/or setter method to access or modify its value.
+Properties allow you to control access to the underlying field and add additional logic, such as validation or computation, when getting or setting the value.
+Properties are declared using a combination of access modifiers, a data type, and a name, followed by a block of code for the getter and setter (if applicable).
+Properties are typically used when you want to expose the internal state of an object while controlling access and providing additional functionality.
+
+9. How do you make a method parameter optional?
+you can make a method parameter optional by providing a default value for the parameter in the method signature.
+
+10. What is an interface and how is it different from abstract class?
+Interface:
+
+1. Interface is a collection of methods which are by default public and abstract, and will be implemented by the derived classes. 
+2. Once class can implement multiple interfaces.
+3. Interface cannot be instantiated.
+4. Interface is helpful in writing loosely coupled code.
+
+Abstract class vs Interface
+
+1. Abstract class provides a base class to its subclasses - use it when we have clear class hierarchy; 
+interface defines common behaviors that can be implemented by any class
+
+2.One class only inherit from one abstract class/concrete class but one class can implement multiple interfaces
+
+11. What accessibility level are members of an interface?
+public
+
+12. True/False. Polymorphism allows derived classes to provide different implementations of the same method.
+true
+
+13. True/False. The override keyword is used to indicate that a method in a derived class is providing its own implementation of a method.
+true
+
+14. True/False. The new keyword is used to indicate that a method in a derived class is providing its own implementation of a method.
+false (use to hide the base class's implementation)
+
+15. True/False. Abstract methods can be used in a normal (non-abstract) class. 
+false, must be implemented in derived(non-abstrct) classes
+
+16.True/False. Normal (non-abstract) methods can be used in an abstract class. 
+true
+
+17. True/False.Derived classes can override methods that were virtual in the base class. 
+true
+
+18. True/False.Derived classes can override methods that were abstract in the base class. 
+true
+
+19. True/False.In a derived class, you can override a method that was neither virtual non abstract in thebase class.
+false (In order to override a method in a derived class, it must be marked as virtual or abstract in the base class.)
+
+20. True/False. A class that implements an interface does not have to provide an implementation for all of the members of the interface.
+true
+
+21. True/False. A class that implements an interface is allowed to have other members that aren’t defined in the interface.
+true
+
+22. True/False. A class can have more than one base class.
+true
+
+23. True/False. A class can implement more than one interface.
+true
